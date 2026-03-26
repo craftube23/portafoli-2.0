@@ -55,8 +55,8 @@ export function Header() {
             asChild
             className="group relative overflow-hidden border-2 border-neon-cyan bg-transparent font-mono text-sm tracking-wider text-neon-cyan transition-all hover:bg-neon-cyan hover:text-darker-purple"
           >
-            {/* [CV_LINK_AQUÍ] - Reemplaza "#" con la URL de tu CV */}
-            <a href="#" download>
+            
+            <a href="https://drive.google.com/file/d/1DtncTOlD6EbnOpMG79yiJBMjV2vK1fbQ/view?usp=sharing" download>
               <span className="relative z-10 flex items-center gap-2">
                 <Download className="h-4 w-4" />
                 DESCARGAR CV
