@@ -11,9 +11,9 @@ const projects = [
     title: "LuxTime — Relojes de Lujo",
     description: "Tienda virtual diseñada con una estética sofisticada inspirada en marcas suizas. Enfocada en una experiencia de usuario fluida y minimalista utilizando bases sólidas de maquetación.",
     tags: ["HTML", "CSS", "JavaScript"],
-    image: "/projects/luxtime.png", // Asegúrate de poner la captura en public/projects/
+    image: "https://api.microlink.io/?url=https://vente-relojes.netlify.app/&screenshot=true&meta=false&embed=screenshot.url", // Asegúrate de poner la captura en public/projects/
     liveUrl: "https://vente-relojes.netlify.app/",
-    githubUrl: "https://github.com/craftube23",
+    githubUrl: "https://github.com/craftube23/venta-de-relojes",
     featured: true,
   },
   {
