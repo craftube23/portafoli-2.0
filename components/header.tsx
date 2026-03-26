@@ -94,7 +94,7 @@ export function Header() {
               asChild
               className="mt-4 w-full border-2 border-neon-cyan bg-transparent font-mono text-sm tracking-wider text-neon-cyan hover:bg-neon-cyan hover:text-darker-purple"
             >
-              <a href="#" download>
+              <a href="https://drive.google.com/file/d/1DtncTOlD6EbnOpMG79yiJBMjV2vK1fbQ/view?usp=sharing" download>
                 <Download className="mr-2 h-4 w-4" />
                 DESCARGAR CV
               </a>
