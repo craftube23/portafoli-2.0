@@ -12,8 +12,8 @@ const skillCategories = [
     skills: [
       { name: "HTML", level: 80 },
       { name: "CSS", level: 80 },
-      { name: "React / Next.js", level: 10 },
-      { name: "TypeScript", level: 5 },
+      { name: "React / Next.js", level: 40 },
+      { name: "TypeScript", level: 25 },
     
     ],
   },
@@ -40,25 +40,25 @@ const skillCategories = [
     ],
   },
   {
-    title: "DISEÑO UI/UX",
+    title: "EDITOR DE VISUAL",
     icon: Palette,
     color: "cyan",
     skills: [
-      { name: "Figma", level: 85 },
-      { name: "Adobe XD", level: 70 },
+      { name: "Filmo", level: 85 },
+      { name: "Photoshop", level: 70 },
       { name: "Prototyping", level: 80 },
       { name: "Design Systems", level: 75 },
     ],
   },
   {
-    title: "MOBILE",
+    title: "ABILIDADES BLANDAS",
     icon: Smartphone,
     color: "magenta",
     skills: [
-      { name: "React Native", level: 75 },
-      { name: "Flutter", level: 50 },
-      { name: "PWA", level: 80 },
-      { name: "Responsive Design", level: 95 },
+      { name: "Comunicación", level: 90 },
+      { name: "Trabajo en Equipo", level: 90 },
+      { name: "Resolución de Problemas", level: 75 },
+      { name: "Gestión del Tiempo", level: 70 },
     ],
   },
   {
@@ -67,7 +67,7 @@ const skillCategories = [
     color: "pink",
     skills: [
       { name: "Git / GitHub", level: 90 },
-      { name: "Docker", level: 70 },
+      { name: "Docker", level: 30 },
       { name: "Testing", level: 65 },
       { name: "Agile/Scrum", level: 80 },
     ],
