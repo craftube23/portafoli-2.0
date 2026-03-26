@@ -164,10 +164,7 @@ export function ContactSection() {
           isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
         }`}>
           <p className="font-mono text-xs text-muted-foreground">
-            DISEÑADO Y DESARROLLADO POR <span className="text-neon-cyan">[TU_NOMBRE]</span>
-          </p>
-          <p className="mt-2 font-mono text-xs text-muted-foreground">
-            © {new Date().getFullYear()} | TODOS LOS DERECHOS RESERVADOS
+            DISEÑADO Y DESARROLLADO POR <span className="text-neon-cyan">Andres Felipe Navas Alvear</span>
           </p>
         </footer>
       </div>
