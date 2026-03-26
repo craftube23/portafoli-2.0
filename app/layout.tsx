@@ -17,8 +17,8 @@ const shareTechMono = Share_Tech_Mono({
 });
 
 export const metadata: Metadata = {
-  title: '[TU_NOMBRE] | Portfolio',
-  description: '[TU_DESCRIPCIÓN] - Desarrollador Front-end especializado en experiencias web interactivas',
+  title: 'Andres Felipe Navas Alvear | Portfolio',
+  description: 'Desarrollador Front-end y músico independiente. Enfocado en crear interfaces con ritmo, armonía y una estética gaming única.',
   generator: 'v0.app',
   icons: {
     icon: [
