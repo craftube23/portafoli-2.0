@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Orbitron, Share_Tech_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import '../lib/i18n';
 
 const orbitron = Orbitron({ 
   subsets: ["latin"],
