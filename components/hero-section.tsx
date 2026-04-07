@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { useTranslation } from 'react-i18next' // 1. IMPORTAR
 
 export function HeroSection() {
+  const { t } = useTranslation() // 2. ACTIVAR TRADUCTOR
   const [typedText, setTypedText] = useState("")
   const fullText = "Andres Felipe Navas Alvear"
   
@@ -28,10 +30,7 @@ export function HeroSection() {
   }
 
   return (
-    <section
-      id="hero"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20 bg-darker-purple"
-    >
+    <section id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20 bg-darker-purple">
       {/* 1. Rejilla 3D Animada */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
         <div 
@@ -77,14 +76,13 @@ export function HeroSection() {
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-neon-cyan/30 bg-neon-cyan/10 px-4 py-2">
               <span className="h-2 w-2 animate-pulse rounded-full bg-neon-cyan" />
               <span className="font-mono text-xs tracking-wider text-neon-cyan">
-                DISPONIBLE PARA PROYECTOS
+                {t('hero_available')} {/* TRADUCCIÓN */}
               </span>
             </div>
 
             <h1 className="mb-4 font-sans text-4xl font-bold leading-tight tracking-wider md:text-5xl lg:text-6xl">
-              <span className="text-foreground">HOLA, SOY</span>
+              <span className="text-foreground">{t('hero_greeting')}</span> {/* TRADUCCIÓN */}
               <br />
-              {/* CAMBIO DE COLOR: Ahora usa un degradado neón más estético */}
               <span className="bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-pink bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(0,245,255,0.3)]">
                 {typedText}
                 <span className="animate-blink text-neon-cyan">|</span>
@@ -92,11 +90,11 @@ export function HeroSection() {
             </h1>
 
             <p className="mb-6 font-mono text-lg tracking-wider text-neon-magenta md:text-xl">
-              {"// Andres  -  Front-end Developer"}
+              {t('hero_role')} {/* TRADUCCIÓN */}
             </p>
 
             <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-muted-foreground lg:mx-0 lg:text-lg">
-              Desarrollador Front-end y músico independiente. Enfocado en crear interfaces con ritmo, armonía y una estética gaming única.
+              {t('hero_desc')} {/* TRADUCCIÓN */}
             </p>
 
             <div className="flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
@@ -104,14 +102,14 @@ export function HeroSection() {
                 onClick={scrollToProjects}
                 className="group hud-clip flex items-center gap-2 border-2 border-neon-cyan bg-neon-cyan/10 px-8 py-3 font-mono text-sm tracking-wider text-neon-cyan transition-all hover:bg-neon-cyan hover:text-darker-purple"
               >
-                VER PROYECTOS
+                {t('hero_btn_projects')} {/* TRADUCCIÓN */}
                 <ChevronDown className="h-4 w-4 transition-transform group-hover:translate-y-1" />
               </button>
               <a
                 href="#contact"
                 className="hud-clip border-2 border-neon-magenta bg-transparent px-8 py-3 font-mono text-sm tracking-wider text-neon-magenta transition-all hover:bg-neon-magenta hover:text-darker-purple"
               >
-                CONTACTAR
+                {t('hero_btn_contact')} {/* TRADUCCIÓN */}
               </a>
             </div>
           </div>

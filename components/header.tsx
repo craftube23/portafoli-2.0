@@ -1,18 +1,20 @@
 "use client"
 
-import { useState } from "react"
-import { Download, Menu, X } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Download, Menu, X, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-const navItems = [
-  { label: "INICIO", href: "#hero" },
-  { label: "PROYECTOS", href: "#projects" },
-  { label: "SKILLS", href: "#skills" },
-  { label: "CONTACTO", href: "#contact" },
-]
+import { useTranslation } from 'react-i18next'
+import '../lib/i18n' // <-- Importante para que cargue tu config
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { t, i18n } = useTranslation()
+  const [mounted, setMounted] = useState(false)
+
+  // Esto evita que Next.js de errores de servidor/cliente
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false)
@@ -21,6 +23,25 @@ export function Header() {
       element.scrollIntoView({ behavior: "smooth" })
     }
   }
+
+  const toggleLanguage = () => {
+    const currentLang = i18n.language || 'en'
+    const newLang = currentLang.includes('en') ? 'es' : 'en'
+    i18n.changeLanguage(newLang)
+  }
+
+  // Usamos las llaves exactas de tu archivo i18n.ts
+  const navItems = [
+    { label: t('welcome'), href: "#hero" },
+    { label: t('projects'), href: "#projects" },
+    { label: t('skills'), href: "#skills" },
+    { label: t('about'), href: "#contact" },
+  ]
+
+  // Si no ha cargado en el navegador, no mostramos nada para evitar el crash del toUpperCase
+  if (!mounted) return null
+
+  const currentLang = i18n.language?.toUpperCase() || 'EN'
 
   return (
     <header className="fixed left-0 right-0 top-0 z-40 border-b border-neon-cyan/20 bg-darker-purple/80 backdrop-blur-md">
@@ -47,6 +68,15 @@ export function Header() {
               <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-neon-cyan transition-all group-hover:w-full" />
             </a>
           ))}
+
+          {/* Botón de cambio de idioma Escritorio */}
+          <button 
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 font-mono text-xs border border-neon-cyan/40 px-2 py-1 rounded text-neon-cyan hover:bg-neon-cyan/10 transition-all ml-4"
+          >
+            <Globe className="h-3 w-3" />
+            {currentLang.includes('EN') ? 'ES' : 'EN'}
+          </button>
         </nav>
 
         {/* CV Download Button */}
@@ -55,25 +85,32 @@ export function Header() {
             asChild
             className="group relative overflow-hidden border-2 border-neon-cyan bg-transparent font-mono text-sm tracking-wider text-neon-cyan transition-all hover:bg-neon-cyan hover:text-darker-purple"
           >
-            
-            <a href="https://drive.google.com/file/d/1DtncTOlD6EbnOpMG79yiJBMjV2vK1fbQ/view?usp=sharing" download>
+            <a href="https://drive.google.com/file/d/1DtncTOlD6EbnOpMG79yiJBMjV2vK1fbQ/view?usp=sharing" target="_blank">
               <span className="relative z-10 flex items-center gap-2">
                 <Download className="h-4 w-4" />
-                DESCARGAR CV
+                {currentLang.includes('EN') ? 'RESUME' : 'CV'}
               </span>
               <span className="absolute inset-0 -translate-x-full bg-neon-cyan transition-transform group-hover:translate-x-0" />
             </a>
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-neon-cyan md:hidden"
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="flex items-center gap-4 md:hidden">
+          <button 
+            onClick={toggleLanguage}
+            className="text-neon-cyan text-xs font-mono border border-neon-cyan/40 px-2 py-1 rounded"
+          >
+            {currentLang.includes('EN') ? 'ES' : 'EN'}
+          </button>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-neon-cyan"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -90,15 +127,6 @@ export function Header() {
                 {">"} {item.label}
               </a>
             ))}
-            <Button
-              asChild
-              className="mt-4 w-full border-2 border-neon-cyan bg-transparent font-mono text-sm tracking-wider text-neon-cyan hover:bg-neon-cyan hover:text-darker-purple"
-            >
-              <a href="https://drive.google.com/file/d/1DtncTOlD6EbnOpMG79yiJBMjV2vK1fbQ/view?usp=sharing" download>
-                <Download className="mr-2 h-4 w-4" />
-                DESCARGAR CV
-              </a>
-            </Button>
           </div>
         </nav>
       )}
