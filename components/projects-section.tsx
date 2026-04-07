@@ -1,7 +1,7 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
-import { ExternalLink, Github, Play } from "lucide-react"
+'use client'; 
+import { useEffect, useRef, useState } from "react";
+import { ExternalLink, Github, Play } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 // [PROYECTOS_AQUÍ] - Reemplaza estos datos con tus proyectos reales
 
